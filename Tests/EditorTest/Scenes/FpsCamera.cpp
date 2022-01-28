@@ -24,7 +24,8 @@ void FpsCamera::Update() {
 	auto delta = Engine::Get()->GetDelta().AsSeconds();
 
 	if (auto scenePlayer = Scenes::Get()->GetStructure()->GetComponent<FpsPlayer>()) {
-		if (auto transformPlayer = scenePlayer->GetEntity()->GetComponent<Transform>()) {
+		if (auto transformPlayer = scenePlayer->GetEntity()->GetComponent<Transform>())
+		{
 			velocity = (transformPlayer->GetPosition() - position) / delta;
 			position = transformPlayer->GetPosition() + ViewOffset;
 		}
@@ -33,6 +34,10 @@ void FpsCamera::Update() {
 	if (!Scenes::Get()->IsPaused()) {
 		auto rotationDelta = Mouse::Get()->IsCursorHidden() * Vector2f(Input::Get()->GetAxis("mouseX")->GetAmount(),
 			Input::Get()->GetAxis("mouseY")->GetAmount());
+
+		if (eye == false) { position.x -= 1.0f; }
+		else { position.x += 1.0f; }
+		eye = !eye;
 
 		rotation.y += rotationDelta.x;
 		rotation.x += rotationDelta.y;

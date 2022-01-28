@@ -74,16 +74,16 @@ void MainRenderer::Start() {
 	AddSubrender<DeferredSubrender>(Pipeline::Stage(1, 1));
 	AddSubrender<ParticlesSubrender>(Pipeline::Stage(1, 1));
 
-	//AddSubrender<FxaaFilter>(Pipeline::Stage(1, 2));
+	AddSubrender<FxaaFilter>(Pipeline::Stage(1, 2));
 	//AddSubrender<ToneFilter>(Pipeline::Stage(1, 2));
-	//AddSubrender<SsaoFilter>(Pipeline::Stage(1, 2));
+	AddSubrender<SsaoFilter>(Pipeline::Stage(1, 2));
 	//AddSubrender()->AddRenderer<BlurPipeline>(Pipeline::Stage(1, 2), 1.8f, BlurPipeline::Type::_5, false, 0.6f, 1.0f);
 	//AddSubrender<DofFilter>(Pipeline::Stage(1, 2), sceneBlur, 1.11f);
 	//AddSubrender<EmbossFilter>(Pipeline::Stage(1, 2));
 	//AddSubrender<CrtFilter>(Pipeline::Stage(1, 2));
-	//AddSubrender<LensflareFilter>(Pipeline::Stage(1, 2));
+	AddSubrender<LensflareFilter>(Pipeline::Stage(1, 2));
 	//AddSubrender<TiltshiftFilter>(Pipeline::Stage(1, 2));
-	//AddSubrender<PixelFilter>(Pipeline::Stage(1, 2), 8.0f);
+	AddSubrender<PixelFilter>(Pipeline::Stage(1, 2), 8.0f);
 	//AddSubrender<VignetteFilter>(Pipeline::Stage(1, 2));
 	//AddSubrender<GrainFilter>(Pipeline::Stage(1, 2));
 	AddSubrender<DefaultFilter>(Pipeline::Stage(1, 2), true);
